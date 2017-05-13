@@ -1,33 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from './heroes/hero';
-import { HeroService } from './services/hero.services';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [HeroService] // Injectable service
+    moduleId: module.id,
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['./app.component.css']    
 })
 
-export class AppComponent implements OnInit { // import OnInit is required, implement ngOnInit()
-  title = 'Angular 4.0 Rocks';
-  heroes: Hero[];
-  selectedHero: Hero;
+export class AppComponent implements OnInit {
+    title = 'Tour of Heroes';
+  
+    constructor() { }
 
-  constructor(private heroService: HeroService) { 
-  }
-
-  ngOnInit(): void {
-    this.populateHeroes();
-  }
-
-  populateHeroes(): void {
-    //this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-    this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
-    //this.heroes = this.heroService.getHeroes();
-  }
-
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
-  }
-}
+    ngOnInit() { }
+} 
